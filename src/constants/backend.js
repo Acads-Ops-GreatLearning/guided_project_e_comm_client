@@ -1,0 +1,1 @@
+export const BACKEND_URL_ENDPOINT = process.env.REACT_APP_BACKEND_URL_ENDPOINT
