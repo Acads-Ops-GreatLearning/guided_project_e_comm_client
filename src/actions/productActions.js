@@ -39,7 +39,7 @@ export const addProduct =
       };
       await axios
         .post(
-          BACKEND_URL_ENDPOINT + "/api/v1/products/",
+          BACKEND_URL_ENDPOINT + "/api/v1/products",
           { name, description, price, quantityInStock, image, categoryId },
           config
         )
@@ -121,7 +121,7 @@ export const listProducts = () => async (dispatch) => {
     };
 
     await axios
-      .get(BACKEND_URL_ENDPOINT + "/api/v1/products/", config)
+      .get(BACKEND_URL_ENDPOINT + "/api/v1/products", config)
       .then((res) => {
         if (res.status === 200) {
           dispatch({
