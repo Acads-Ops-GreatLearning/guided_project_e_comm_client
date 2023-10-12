@@ -59,7 +59,7 @@ export const addProduct =
     } catch (err) {
       dispatch({
         type: PRODUCT_CREATE_FAILURE,
-        payload: err.response.data.message,
+        payload: err.message,
       });
     }
   };
@@ -99,7 +99,7 @@ export const deletProduct = (productId) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: PRODUCT_DELETE_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };
@@ -138,7 +138,7 @@ export const listProducts = () => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: PRODUCT_LIST_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };

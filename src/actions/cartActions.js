@@ -50,7 +50,7 @@ export const saveToCart =
     } catch (err) {
       dispatch({
         type: CART_SAVE_FAILURE,
-        payload: err.response.data.message,
+        payload: err.message,
       });
     }
   };
@@ -128,7 +128,7 @@ export const deletProductFromUserCart = (productId) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: DELETE_PRODUCT_FROM_CART_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };

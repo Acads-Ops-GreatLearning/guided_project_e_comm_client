@@ -65,7 +65,7 @@ export const login = (username, password) => async (dispatch) => {
         console.log(err);
         dispatch({
           type: LOGIN_FAILURE,
-          error: err.response.data.error,
+          error: err.message,
         });
       });
 
@@ -76,7 +76,7 @@ export const login = (username, password) => async (dispatch) => {
     console.log(err);
     dispatch({
       type: LOGIN_FAILURE,
-      payload: err.message,
+      error: err.message,
     });
   }
 };
@@ -120,7 +120,7 @@ export const logout = () => async (dispatch) => {
       .catch((err) => {
         console.log(err);
         dispatch({
-          type: LOGIN_FAILURE,
+          type: LOGOUT_FAILURE,
           payload: err.message,
         });
       });
@@ -169,14 +169,14 @@ export const registerUser =
           console.log(err);
           dispatch({
             type: USER_REGISTER_FAILURE,
-            payload: err.response.data.error,
+            payload: err.message,
           });
         });
     } catch (err) {
       console.log(err);
       dispatch({
         type: USER_REGISTER_FAILURE,
-        payload: err.response.data.error,
+        payload: err.message,
       });
     }
   };
@@ -261,7 +261,7 @@ export const listUsers = () => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: USER_LIST_FAILURE,
-      payload: err,
+      payload: err.message,
     });
   }
 };
@@ -308,7 +308,7 @@ export const userDetails =
     } catch (err) {
       dispatch({
         type: USER_DETAILS_FAILURE,
-        payload: err.response.data.message,
+        payload: err.message,
       });
     }
   };
@@ -317,7 +317,7 @@ export const updateUserDetails =
   (email, password, userId) => async (dispatch) => {
     try {
       dispatch({
-        type: USER_DETAILS_REQUEST,
+        type: USER_DETAILS_UPDATE_REQUEST,
       });
 
       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -355,7 +355,7 @@ export const updateUserDetails =
     } catch (err) {
       dispatch({
         type: USER_DETAILS_UPDATE_FAILURE,
-        payload: err.response.data.message,
+        payload: err.message,
       });
     }
   };

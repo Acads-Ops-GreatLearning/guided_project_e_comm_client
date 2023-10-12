@@ -56,7 +56,7 @@ export const addCategory = (name, description) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: CATEGORY_CREATE_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };
@@ -95,7 +95,7 @@ export const deletCategory = (categoryId) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: CATEGORY_DELETE_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };
@@ -170,7 +170,7 @@ export const fetchCategoryDetails = (categoryId) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: CATEGORY_DETAILS_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };
@@ -211,7 +211,7 @@ export const updateCategory =
     } catch (err) {
       dispatch({
         type: CATEGORY_UPDATE_FAILURE,
-        payload: err.response.data.message,
+        payload: err.message,
       });
     }
   };

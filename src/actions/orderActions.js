@@ -50,7 +50,7 @@ export const placeOrderOfUser = (shippingDetails) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: CREATE_ORDER_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };
@@ -94,7 +94,7 @@ export const getUserOrdersHistory =
     } catch (err) {
       dispatch({
         type: USER_ORDER_HISTORY_FAILURE,
-        payload: err.response.data.message,
+        payload: err.message,
       });
     }
   };
@@ -133,7 +133,7 @@ export const getAllUsersOrderHistory = () => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: ORDER_HISTORY_ALL_USERS_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };
@@ -171,7 +171,7 @@ export const changeUserOrderStatus = (orderId, newStatus) => async (dispatch) =>
   } catch (err) {
     dispatch({
       type: CHANGE_ORDER_STATUS_FAILURE,
-      payload: err.response.data.message,
+      payload: err.message,
     });
   }
 };
